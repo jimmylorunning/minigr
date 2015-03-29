@@ -17,6 +17,7 @@ group "development", "test" do
   gem 'rubocop'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rails-erd'
 end
 
 group "production" do
