@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330033629) do
+ActiveRecord::Schema.define(version: 20150330154439) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
@@ -57,5 +57,23 @@ ActiveRecord::Schema.define(version: 20150330033629) do
   end
 
   add_index "editions", ["book_id"], name: "index_editions_on_book_id"
+
+  create_table "readers", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "readers", ["email"], name: "index_readers_on_email", unique: true
+  add_index "readers", ["reset_password_token"], name: "index_readers_on_reset_password_token", unique: true
 
 end
