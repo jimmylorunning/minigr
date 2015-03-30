@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Book, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many(:authors).class_name('Author') }
+  it { should have_many(:editions).class_name('Edition') }
+  it { should have_many(:copies).class_name('Copy') }
 end
