@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331221358) do
+ActiveRecord::Schema.define(version: 20150401175602) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
@@ -68,6 +68,17 @@ ActiveRecord::Schema.define(version: 20150331221358) do
   end
 
   add_index "editions", ["book_id"], name: "index_editions_on_book_id"
+
+  create_table "follow_relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "follow_relationships", ["followed_id"], name: "index_follow_relationships_on_followed_id"
+  add_index "follow_relationships", ["follower_id", "followed_id"], name: "index_follow_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "follow_relationships", ["follower_id"], name: "index_follow_relationships_on_follower_id"
 
   create_table "readers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
