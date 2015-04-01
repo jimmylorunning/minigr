@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Reader, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many(:copies) }
+  it { should have_many(:shelves) }
+  it { should have_many(:categories) }
 end
