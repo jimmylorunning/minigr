@@ -19,6 +19,7 @@ group "development", "test" do
   gem 'spring'
   gem 'rails-erd'
   gem 'shoulda'
+  gem 'rspec-its'
 end
 
 group "production" do

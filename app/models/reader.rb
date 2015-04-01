@@ -11,7 +11,7 @@ class Reader < ActiveRecord::Base
                         dependent: :destroy
   has_many :following, through: :follow_relationships, source: :followed
   has_many :followed_relationships, class_name: "FollowRelationship",
-                        foreign_key: "following_id",
+                        foreign_key: "followed_id",
                         dependent: :destroy
   has_many :followers, through: :followed_relationships, source: :follower
 end

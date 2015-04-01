@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe FollowRelationship, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:follower).class_name "Reader" }
+  it { should belong_to(:followed).class_name("Reader") }
 end
