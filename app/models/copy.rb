@@ -3,5 +3,5 @@ class Copy < ActiveRecord::Base
   has_one :book, through: :edition
   has_many :taggings
   has_many :tags, through: :taggings
-  belongs_to :category
+  belongs_to :shelf
 end

@@ -4,8 +4,8 @@ class Reader < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :tags
-  has_many :categories
-  has_many :copies, through: :categories
+  has_many :shelves
+  has_many :copies, through: :shelves
   has_many :follow_relationships, class_name: "FollowRelationship",
                         foreign_key: "follower_id",
                         dependent: :destroy

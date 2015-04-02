@@ -7,7 +7,7 @@ RSpec.describe Reader, type: :model do
 
   it { should have_many(:copies) }
   it { should have_many(:tags) }
-  it { should have_many(:categories) }
+  it { should have_many(:shelves) }
 
   context "reader creation" do
     subject { @reader }

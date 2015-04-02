@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402144532) do
+ActiveRecord::Schema.define(version: 20150402230735) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
@@ -26,26 +26,17 @@ ActiveRecord::Schema.define(version: 20150402144532) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "reader_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "categories", ["reader_id"], name: "index_categories_on_reader_id"
-
   create_table "copies", force: :cascade do |t|
     t.string   "notes"
     t.float    "rating"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "edition_id"
-    t.integer  "category_id"
+    t.integer  "shelf_id"
   end
 
-  add_index "copies", ["category_id"], name: "index_copies_on_category_id"
   add_index "copies", ["edition_id"], name: "index_copies_on_edition_id"
+  add_index "copies", ["shelf_id"], name: "index_copies_on_shelf_id"
 
   create_table "credits", force: :cascade do |t|
     t.integer  "book_id"
@@ -97,6 +88,15 @@ ActiveRecord::Schema.define(version: 20150402144532) do
 
   add_index "readers", ["email"], name: "index_readers_on_email", unique: true
   add_index "readers", ["reset_password_token"], name: "index_readers_on_reset_password_token", unique: true
+
+  create_table "shelves", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "reader_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shelves", ["reader_id"], name: "index_shelves_on_reader_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
