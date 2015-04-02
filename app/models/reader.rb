@@ -3,7 +3,7 @@ class Reader < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :shelves
+  has_many :tags
   has_many :categories
   has_many :copies, through: :categories
   has_many :follow_relationships, class_name: "FollowRelationship",

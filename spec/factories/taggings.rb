@@ -1,7 +1,7 @@
 FactoryGirl.define do
-  factory :shelving do
+  factory :tagging do
     shelf nil
-copy nil
+    copy nil
   end
 
 end
