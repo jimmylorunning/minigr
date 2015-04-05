@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405130105) do
+ActiveRecord::Schema.define(version: 20150405150932) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
@@ -69,6 +69,15 @@ ActiveRecord::Schema.define(version: 20150405130105) do
   add_index "follow_relationships", ["followed_id"], name: "index_follow_relationships_on_followed_id"
   add_index "follow_relationships", ["follower_id", "followed_id"], name: "index_follow_relationships_on_follower_id_and_followed_id", unique: true
   add_index "follow_relationships", ["follower_id"], name: "index_follow_relationships_on_follower_id"
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "reader_id"
+    t.integer "likeable_id"
+    t.string  "likeable_type"
+  end
+
+  add_index "likes", ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
+  add_index "likes", ["reader_id"], name: "index_likes_on_reader_id"
 
   create_table "ratings", force: :cascade do |t|
     t.float    "score"
