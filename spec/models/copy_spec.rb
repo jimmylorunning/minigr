@@ -5,5 +5,6 @@ RSpec.describe Copy, type: :model do
   it { should have_one(:book) }
   it { should belong_to(:shelf) }
   it { should have_one(:review) }
+  it { should have_one(:rating) }
   it { should have_one(:reader) }
 end
