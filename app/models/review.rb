@@ -5,4 +5,5 @@ class Review < ActiveRecord::Base
                      class_name: "Reader",
                      foreign_key: :reader_id
   has_many :likes, as: :likeable
+  has_many :comments, as: :commentable
 end

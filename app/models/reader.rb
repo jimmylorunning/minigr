@@ -15,4 +15,5 @@ class Reader < ActiveRecord::Base
                         dependent: :destroy
   has_many :followers, through: :followed_relationships, source: :follower
   has_many :likes
+  has_many :comments
 end
