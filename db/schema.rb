@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410030503) do
+ActiveRecord::Schema.define(version: 20150410034021) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
@@ -135,6 +135,15 @@ ActiveRecord::Schema.define(version: 20150410030503) do
   end
 
   add_index "shelves", ["reader_id"], name: "index_shelves_on_reader_id"
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "message"
+    t.integer  "reader_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "statuses", ["reader_id"], name: "index_statuses_on_reader_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

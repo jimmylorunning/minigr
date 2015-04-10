@@ -16,4 +16,5 @@ class Reader < ActiveRecord::Base
   has_many :followers, through: :followed_relationships, source: :follower
   has_many :likes
   has_many :comments
+  has_many :statuses
 end
