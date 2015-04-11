@@ -8,6 +8,8 @@ RSpec.describe Reader, type: :model do
   it { should have_many(:copies) }
   it { should have_many(:tags) }
   it { should have_many(:shelves) }
+  it { should have_many(:friendships) }
+  it { should have_many(:friends) }
 
   context "reader creation" do
     subject { @reader }
