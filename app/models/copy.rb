@@ -7,4 +7,5 @@ class Copy < ActiveRecord::Base
   has_one :reader, through: :shelf
   has_one :review
   has_one :rating
+  has_many :copy_statuses
 end
