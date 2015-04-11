@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Status, type: :model do
   it { should belong_to(:reader) }
+  it { should have_many(:likes) }
+  it { should have_many(:comments) }
 
   context "associates" do
     before(:all) do
